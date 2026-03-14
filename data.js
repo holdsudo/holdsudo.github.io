@@ -1,54 +1,141 @@
-// EDIT THIS FILE FOR ALL YOUR INFO
-
-const data = {
-  phone: {
+const data = [
+  {
+    key: "phone",
     title: "Phone",
-    text: "Your phone number here",
-    link: "tel:1234567890",
-    buttonText: "Call",
-    showButton: true
+    subtitle: "(732) 997-9107",
+    kicker: "Direct",
+    description: "Call me directly or copy my number.",
+    icon: "fa-solid fa-phone",
+    trackOpen: "phone_card_open",
+    actions: [
+      {
+        type: "link",
+        label: "Call me",
+        href: "tel:7329979107",
+        style: "primary",
+        track: "phone_call_click"
+      },
+      {
+        type: "copy",
+        label: "Copy my number",
+        value: "732-997-9107",
+        style: "secondary",
+        track: "phone_copy_click"
+      }
+    ]
   },
-
-  email: {
+  {
+    key: "email",
     title: "Email",
-    text: "your@email.com",
-    link: "mailto:your@email.com",
-    buttonText: "Send Email",
-    showButton: true
+    subtitle: "jmizrahi7@gmail.com",
+    kicker: "Message",
+    description: "Send me an email or copy my address.",
+    icon: "fa-solid fa-envelope",
+    trackOpen: "email_card_open",
+    actions: [
+      {
+        type: "link",
+        label: "Send me an email",
+        href: "mailto:jmizrahi7@gmail.com",
+        style: "primary",
+        track: "email_send_click"
+      },
+      {
+        type: "copy",
+        label: "Copy my email",
+        value: "jmizrahi7@gmail.com",
+        style: "secondary",
+        track: "email_copy_click"
+      }
+    ]
   },
-
-  resume: {
+  {
+    key: "resume",
     title: "Resume",
-    text: "View my resume",
-    link: "assets/files/resume.pdf",
-    buttonText: "Open Resume",
-    showButton: true
+    subtitle: "Protected access",
+    kicker: "Resume",
+    description: "Enter the password to open my resume.",
+    icon: "fa-solid fa-file-lines",
+    trackOpen: "resume_card_open",
+    requiresPassword: true,
+    password: "MiZ",
+    protectedLink: "nesume.pdf",
+    actions: [
+      {
+        type: "passwordPrompt",
+        label: "Unlock resume",
+        style: "primary",
+        track: "resume_unlock_prompt"
+      }
+    ]
   },
-
-  linkedin: {
+  {
+    key: "linkedin",
     title: "LinkedIn",
-    text: "Open my LinkedIn profile",
-    link: "https://linkedin.com",
-    buttonText: "Open LinkedIn",
-    showButton: true
+    subtitle: "josephamizrahi",
+    kicker: "Profile",
+    description: "Visit my LinkedIn or copy the profile link.",
+    icon: "fa-brands fa-linkedin-in",
+    trackOpen: "linkedin_card_open",
+    actions: [
+      {
+        type: "link",
+        label: "Visit my LinkedIn",
+        href: "https://www.linkedin.com/in/josephamizrahi",
+        style: "primary",
+        track: "linkedin_visit_click"
+      },
+      {
+        type: "copy",
+        label: "Copy my LinkedIn",
+        value: "https://www.linkedin.com/in/josephamizrahi",
+        style: "secondary",
+        track: "linkedin_copy_click"
+      }
+    ]
   },
-
-  contact: {
+  {
+    key: "contact",
     title: "Save Contact",
-    text: "Add me to your contacts",
-    link: "assets/files/contact.vcf",
-    buttonText: "Save Contact",
-    showButton: true
+    subtitle: "Joseph Mizrahi.vcf",
+    kicker: "Contact file",
+    description: "Save my contact card directly to your device.",
+    icon: "fa-solid fa-address-card",
+    trackOpen: "contact_card_open",
+    actions: [
+      {
+        type: "link",
+        label: "Download contact",
+        href: "Joseph Mizrahi.vcf",
+        style: "primary",
+        track: "contact_download_click",
+        download: true
+      }
+    ]
   },
-
-  venmo: {
+  {
+    key: "venmo",
     title: "Venmo",
-    text: "Scan or tap the QR code to open Venmo",
-    image: "assets/images/venmo_qr.png",
-    link: "https://venmo.com",
-    imageClickable: true, // EDIT: keep true so tapping the QR opens Venmo
-    buttonText: "Open Venmo",
-    showButton: true,
-    helperText: "Tip: the QR image itself is clickable."
+    subtitle: "@Joe-Miz",
+    kicker: "Payments",
+    description: "Open my Venmo or copy the username.",
+    icon: "fa-brands fa-vimeo-v",
+    trackOpen: "venmo_card_open",
+    actions: [
+      {
+        type: "link",
+        label: "Venmo direct",
+        href: "https://venmo.com/Joe-Miz",
+        style: "primary",
+        track: "venmo_direct_click"
+      },
+      {
+        type: "copy",
+        label: "Copy Venmo",
+        value: "@Joe-Miz",
+        style: "secondary",
+        track: "venmo_copy_click"
+      }
+    ]
   }
-};
+];
