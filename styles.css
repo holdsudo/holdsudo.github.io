@@ -510,7 +510,7 @@ a {
   60% { transform: translateX(-4px); }
   80% { transform: translateX(4px); }
 }
-
+ 
 @media (max-width: 720px) {
   .card-grid {
     grid-template-columns: 1fr;
