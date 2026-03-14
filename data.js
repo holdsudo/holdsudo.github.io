@@ -95,7 +95,6 @@ const data = [
     ]
   },
   {
-    {
     key: "contact",
     title: "Save Contact",
     subtitle: "Save My Contact",
