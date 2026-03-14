@@ -1,52 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NFC Contact Card</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joe</title>
+  <meta name="description" content="Joe's contact card" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L005CX6EF4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L005CX6EF4');
+  </script>
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="profile">
-    <!-- EDIT: Replace profile.png with your profile image -->
-    <img src="assets/images/profile.png" class="profile-pic" alt="Profile picture">
-    <h1>Your Name</h1> <!-- EDIT: Put your name -->
-    <p>Your Title / Tagline</p> <!-- EDIT: optional subtitle -->
+  <div id="wipe-loader" aria-hidden="true">
+    <div class="wipe-left"></div>
+    <div class="wipe-right"></div>
+    <div class="wipe-core"></div>
   </div>
 
-  <div class="grid">
-    <div class="card" onclick="toggleCard('phone')">
-      <img src="assets/icons/phone.png" alt="Phone">
-      <p>Phone</p>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <img
+        class="profile-pic"
+        src="https://media.licdn.com/dms/image/v2/D4E03AQH5lB0NqQjiXQ/profile-displayphoto-scale_400_400/B4EZyD2E84KoAg-/0/1771738527800?e=2147483647&v=beta&t=yOZecGqHxf_kvsenrc9y_4HXejyQi6s-pFJ07TuYgK0"
+        alt="Joe profile photo"
+      />
+      <h1 class="hero-name">Joe</h1>
+      <p class="hero-tagline">Tap a card to connect.</p>
+    </section>
+
+    <section class="card-grid" id="card-grid"></section>
+  </main>
+
+  <a
+    class="github-float"
+    href="https://github.com/holdsudo"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-track="github_float_click"
+  >
+    Check out my GitHub ❤️
+  </a>
+
+  <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+
+  <div
+    id="action-modal"
+    class="action-modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <button id="modal-close" class="modal-close" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-top">
+      <div id="modal-icon-wrap" class="modal-icon-wrap"></div>
+      <div>
+        <p id="modal-kicker" class="modal-kicker"></p>
+        <h2 id="modal-title" class="modal-title"></h2>
+        <p id="modal-description" class="modal-description"></p>
+      </div>
     </div>
 
-    <div class="card" onclick="toggleCard('email')">
-      <img src="assets/icons/email.png" alt="Email">
-      <p>Email</p>
-    </div>
+    <div id="modal-actions" class="modal-actions"></div>
 
-    <div class="card" onclick="toggleCard('resume')">
-      <img src="assets/icons/resume.png" alt="Resume">
-      <p>Resume</p>
-    </div>
-
-    <div class="card" onclick="toggleCard('linkedin')">
-      <img src="assets/icons/linkedin.png" alt="LinkedIn">
-      <p>LinkedIn</p>
-    </div>
-
-    <div class="card" onclick="toggleCard('contact')">
-      <img src="assets/icons/contact.png" alt="Save Contact">
-      <p>Save Contact</p>
-    </div>
-
-    <div class="card" onclick="toggleCard('venmo')">
-      <img src="assets/icons/venmo.png" alt="Venmo">
-      <p>Venmo</p>
+    <div id="resume-gate" class="resume-gate hidden">
+      <label class="gate-label" for="resume-password">Enter password</label>
+      <div class="gate-row">
+        <input
+          id="resume-password"
+          class="gate-input"
+          type="password"
+          placeholder="Password"
+          autocomplete="off"
+        />
+        <button id="resume-submit" class="action-btn primary-action" type="button">
+          Unlock
+        </button>
+      </div>
+      <p id="resume-error" class="resume-error hidden">Incorrect password.</p>
     </div>
   </div>
 
-  <div id="dropdown-container"></div>
+  <template id="card-template">
+    <button class="contact-card" type="button">
+      <div class="card-shine"></div>
+      <div class="card-icon"></div>
+      <div class="card-copy">
+        <h3 class="card-title"></h3>
+        <p class="card-subtitle"></p>
+      </div>
+      <div class="card-arrow">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </div>
+    </button>
+  </template>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
