@@ -95,9 +95,10 @@ const data = [
     ]
   },
   {
+    {
     key: "contact",
     title: "Save Contact",
-    subtitle: "Joseph Mizrahi.vcf",
+    subtitle: "Save My Contact",
     kicker: "Contact file",
     description: "Save my contact card directly to your device.",
     icon: "fa-solid fa-address-card",
