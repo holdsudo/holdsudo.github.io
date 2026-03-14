@@ -59,7 +59,7 @@ const data = [
     trackOpen: "resume_card_open",
     requiresPassword: true,
     password: "MiZ",
-    protectedLink: "nesume.pdf",
+    protectedLink: "assets/nesume.pdf",
     actions: [
       {
         type: "passwordPrompt",
@@ -106,7 +106,7 @@ const data = [
       {
         type: "link",
         label: "Download contact",
-        href: "Joseph Mizrahi.vcf",
+        href: "assets/Joseph Mizrahi.vcf",
         style: "primary",
         track: "contact_download_click",
         download: true
