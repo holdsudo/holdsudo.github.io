@@ -1,11 +1,10 @@
 :root {
   --bg: #000000;
   --panel: #090909;
-  --panel-soft: #101010;
+  --panel-soft: #121212;
   --line: #2d2d2d;
   --text: #ffffff;
   --muted: #9d9d9d;
-  --danger: #ff6b6b;
   --radius: 22px;
   --radius-sm: 14px;
 }
@@ -31,7 +30,7 @@ body {
 }
 
 .shell {
-  width: min(1100px, calc(100vw - 24px));
+  width: min(1180px, calc(100vw - 24px));
   margin: 0 auto;
   padding: 18px 0 40px;
 }
@@ -70,14 +69,19 @@ h1 {
 }
 
 .lede {
-  max-width: 50rem;
+  max-width: 52rem;
   color: #d4d4d4;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .hero-link,
 .action-btn,
-.selector-btn,
-.pad {
+.selector-btn {
   font: inherit;
 }
 
@@ -96,17 +100,60 @@ h1 {
   cursor: pointer;
 }
 
+.muted-link {
+  background: transparent;
+  color: var(--text);
+}
+
 .selector {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 16px;
   padding: 10px;
 }
 
+.touch-controls {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--panel) 0%, #040404 100%);
+}
+
+.touch-grid,
+.touch-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.touch-grid {
+  grid-template-columns: repeat(2, minmax(72px, 90px));
+}
+
+.touch-actions {
+  grid-template-columns: repeat(2, minmax(72px, 90px));
+  align-self: center;
+}
+
+.touch-btn {
+  min-height: 56px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #0b0b0b;
+  color: var(--text);
+  font: inherit;
+  text-transform: lowercase;
+  touch-action: manipulation;
+}
+
 .selector-btn {
-  min-height: 52px;
-  padding: 0 12px;
+  min-height: 50px;
+  padding: 0 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: #0b0b0b;
@@ -117,10 +164,10 @@ h1 {
 
 .selector-btn.active,
 .selector-btn:hover,
+.touch-btn.active,
+.touch-btn:hover,
 .action-btn:hover,
-.hero-link:hover,
-.pad:hover,
-.pad.active {
+.hero-link:hover {
   background: #ffffff;
   color: #000000;
 }
@@ -139,6 +186,7 @@ h1 {
 
 .panel-copy p:last-child {
   color: #d4d4d4;
+  line-height: 1.6;
 }
 
 .play-box {
@@ -147,8 +195,7 @@ h1 {
 }
 
 .status-row,
-.hint-row,
-.message-box {
+.hint-row {
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);
@@ -158,42 +205,8 @@ h1 {
 .status-row {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 12px;
-}
-
-.terminal-box,
-.history-box {
-  min-height: 220px;
-  padding: 16px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line);
-  background: #020202;
-  white-space: pre-wrap;
-  overflow: auto;
-}
-
-.choice-grid,
-.pad-grid {
-  display: grid;
-  gap: 10px;
-}
-
-.choice-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.pad-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.choice-btn,
-.pad {
-  min-height: 82px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: #0b0b0b;
-  color: var(--text);
-  cursor: pointer;
 }
 
 .game-canvas {
@@ -204,45 +217,19 @@ h1 {
   background: #030303;
 }
 
-.guess-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 10px;
-}
-
-.guess-input {
-  min-height: 48px;
-  padding: 0 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #0b0b0b;
-  color: var(--text);
-  font: inherit;
-}
-
-.history-entry {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid #161616;
-}
-
-.history-entry:last-child {
-  border-bottom: 0;
-}
-
-.danger {
-  color: var(--danger);
+.tall-canvas {
+  width: min(100%, 300px);
+  aspect-ratio: 1 / 2;
 }
 
 @media (max-width: 900px) {
-  .selector,
+  .touch-controls,
   .game-panel {
     grid-template-columns: 1fr;
   }
 
-  .choice-grid {
-    grid-template-columns: 1fr;
+  .game-canvas,
+  .tall-canvas {
+    width: 100%;
   }
 }

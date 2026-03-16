@@ -4,53 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>holdsudo arcade lab</title>
-  <meta name="description" content="Five monochrome nerdy mini-games for holdsudo." />
+  <meta name="description" content="A monochrome arcade with multiple playable nerdy mini-games." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="shell">
     <header class="hero">
-      <p class="eyebrow">prototype drop</p>
+      <p class="eyebrow">arcade build</p>
       <h1>holdsudo arcade lab</h1>
-      <p class="lede">Five actual mini-games. Pick one, break it, then tell me which direction deserves the real build.</p>
-      <a class="hero-link" href="https://github.com/holdsudo" target="_blank" rel="noopener noreferrer">github.com/holdsudo</a>
+      <p class="lede">Actual playable prototypes, not mockups. Pick a cabinet, use the keyboard, and tell me which one earns the full build.</p>
+      <div class="hero-actions">
+        <a class="hero-link" href="https://holdsudo.github.io/" target="_blank" rel="noopener noreferrer">main site</a>
+        <a class="hero-link muted-link" href="https://github.com/holdsudo" target="_blank" rel="noopener noreferrer">github</a>
+      </div>
     </header>
 
     <section class="selector" aria-label="Game selector">
-      <button class="selector-btn active" type="button" data-game="breach">terminal breach</button>
-      <button class="selector-btn" type="button" data-game="snake">mono snake</button>
+      <button class="selector-btn active" type="button" data-game="snake">snake</button>
       <button class="selector-btn" type="button" data-game="dodger">bug dodger</button>
-      <button class="selector-btn" type="button" data-game="binary">binary memory</button>
-      <button class="selector-btn" type="button" data-game="code">codebreaker</button>
+      <button class="selector-btn" type="button" data-game="invaders">space invaders</button>
+      <button class="selector-btn" type="button" data-game="maze">maze eater</button>
+      <button class="selector-btn" type="button" data-game="racer">kart runner</button>
+      <button class="selector-btn" type="button" data-game="tetris">tetris</button>
+      <button class="selector-btn" type="button" data-game="infinity">204∞</button>
+      <button class="selector-btn" type="button" data-game="breakout">breakout</button>
     </section>
 
-    <section id="breach" class="game-panel active" data-panel>
-      <div class="panel-copy">
-        <p class="kicker">Option 1</p>
-        <h2>terminal breach</h2>
-        <p>Choose the right command in each system state. Wrong ops cost integrity. Clear all stages to win.</p>
+    <section class="touch-controls" aria-label="Touch controls">
+      <div class="touch-grid">
+        <button class="touch-btn" type="button" data-touch="up">up</button>
+        <button class="touch-btn" type="button" data-touch="left">left</button>
+        <button class="touch-btn" type="button" data-touch="down">down</button>
+        <button class="touch-btn" type="button" data-touch="right">right</button>
       </div>
-      <div class="play-box">
-        <div class="status-row">
-          <span>integrity: <strong id="breach-integrity">3</strong></span>
-          <span>stage: <strong id="breach-stage">1 / 4</strong></span>
-        </div>
-        <pre id="breach-log" class="terminal-box"></pre>
-        <div id="breach-choices" class="choice-grid"></div>
-        <button id="breach-reset" class="action-btn" type="button">reset breach</button>
+      <div class="touch-actions">
+        <button class="touch-btn action-touch" type="button" data-touch="a">a</button>
+        <button class="touch-btn action-touch" type="button" data-touch="b">b</button>
       </div>
     </section>
 
-    <section id="snake" class="game-panel" data-panel>
+    <section id="snake" class="game-panel active" data-panel>
       <div class="panel-copy">
-        <p class="kicker">Option 2</p>
-        <h2>mono snake</h2>
-        <p>Classic snake. Arrow keys or WASD. Eat white nodes, do not eat yourself.</p>
+        <p class="kicker">Cabinet 01</p>
+        <h2>snake</h2>
+        <p>Classic grid snake with clean monochrome blocks. Arrow keys or WASD.</p>
       </div>
       <div class="play-box">
         <div class="status-row">
           <span>score: <strong id="snake-score">0</strong></span>
           <span>best: <strong id="snake-best">0</strong></span>
+          <span>state: <strong id="snake-state">live</strong></span>
         </div>
         <canvas id="snake-canvas" width="420" height="420" class="game-canvas"></canvas>
         <div class="hint-row">controls: arrow keys / WASD</div>
@@ -60,14 +63,15 @@
 
     <section id="dodger" class="game-panel" data-panel>
       <div class="panel-copy">
-        <p class="kicker">Option 3</p>
+        <p class="kicker">Cabinet 02</p>
         <h2>bug dodger</h2>
-        <p>Move the cursor block left and right. Dodge bugs, collect commits, survive as long as possible.</p>
+        <p>Dodge falling bugs, catch commits, survive the feed.</p>
       </div>
       <div class="play-box">
         <div class="status-row">
           <span>score: <strong id="dodger-score">0</strong></span>
           <span>lives: <strong id="dodger-lives">3</strong></span>
+          <span>state: <strong id="dodger-state">live</strong></span>
         </div>
         <canvas id="dodger-canvas" width="420" height="420" class="game-canvas"></canvas>
         <div class="hint-row">controls: arrow keys / A D</div>
@@ -75,46 +79,111 @@
       </div>
     </section>
 
-    <section id="binary" class="game-panel" data-panel>
+    <section id="invaders" class="game-panel" data-panel>
       <div class="panel-copy">
-        <p class="kicker">Option 4</p>
-        <h2>binary memory</h2>
-        <p>Watch the sequence, then repeat it. Each round adds one more bit-pad to the pattern.</p>
+        <p class="kicker">Cabinet 03</p>
+        <h2>space invaders</h2>
+        <p>Slide, shoot, survive. Space fires. Clear the fleet before it reaches the floor.</p>
       </div>
       <div class="play-box">
         <div class="status-row">
-          <span>round: <strong id="binary-round">0</strong></span>
-          <span>status: <strong id="binary-status">idle</strong></span>
+          <span>score: <strong id="invaders-score">0</strong></span>
+          <span>lives: <strong id="invaders-lives">3</strong></span>
+          <span>wave: <strong id="invaders-wave">1</strong></span>
         </div>
-        <div class="pad-grid">
-          <button class="pad" type="button" data-pad="0">00</button>
-          <button class="pad" type="button" data-pad="1">01</button>
-          <button class="pad" type="button" data-pad="2">10</button>
-          <button class="pad" type="button" data-pad="3">11</button>
-        </div>
-        <div id="binary-message" class="message-box">Press start to begin.</div>
-        <button id="binary-start" class="action-btn" type="button">start memory run</button>
+        <canvas id="invaders-canvas" width="420" height="420" class="game-canvas"></canvas>
+        <div class="hint-row">controls: arrow keys / A D + space</div>
+        <button id="invaders-reset" class="action-btn" type="button">restart invaders</button>
       </div>
     </section>
 
-    <section id="code" class="game-panel" data-panel>
+    <section id="maze" class="game-panel" data-panel>
       <div class="panel-copy">
-        <p class="kicker">Option 5</p>
-        <h2>codebreaker</h2>
-        <p>Guess the hidden 4-bit code. `hit` means right digit, right slot. `glow` means right digit, wrong slot.</p>
+        <p class="kicker">Cabinet 04</p>
+        <h2>maze eater</h2>
+        <p>Eat all dots, avoid the hunters. A compact pacman-style maze built for keyboard play.</p>
       </div>
       <div class="play-box">
         <div class="status-row">
-          <span>attempts: <strong id="code-attempts">8</strong></span>
-          <span>status: <strong id="code-status">live</strong></span>
+          <span>score: <strong id="maze-score">0</strong></span>
+          <span>dots: <strong id="maze-dots">0</strong></span>
+          <span>lives: <strong id="maze-lives">3</strong></span>
         </div>
-        <form id="code-form" class="guess-row">
-          <input id="code-input" class="guess-input" type="text" inputmode="numeric" maxlength="4" placeholder="e.g. 0101" autocomplete="off" />
-          <button class="action-btn" type="submit">submit guess</button>
-        </form>
-        <div id="code-message" class="message-box">Enter four bits using only 0 and 1.</div>
-        <div id="code-history" class="history-box"></div>
-        <button id="code-reset" class="action-btn" type="button">new code</button>
+        <canvas id="maze-canvas" width="420" height="420" class="game-canvas"></canvas>
+        <div class="hint-row">controls: arrow keys / WASD</div>
+        <button id="maze-reset" class="action-btn" type="button">restart maze</button>
+      </div>
+    </section>
+
+    <section id="racer" class="game-panel" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Cabinet 05</p>
+        <h2>kart runner</h2>
+        <p>Not full Mario Kart, but the right energy: lane changes, boost, traffic, distance, chaos.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>distance: <strong id="racer-distance">0</strong></span>
+          <span>speed: <strong id="racer-speed">0</strong></span>
+          <span>lives: <strong id="racer-lives">3</strong></span>
+        </div>
+        <canvas id="racer-canvas" width="420" height="420" class="game-canvas"></canvas>
+        <div class="hint-row">controls: left / right to switch lanes, up or space to boost</div>
+        <button id="racer-reset" class="action-btn" type="button">restart racer</button>
+      </div>
+    </section>
+
+    <section id="tetris" class="game-panel" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Cabinet 06</p>
+        <h2>tetris</h2>
+        <p>Drop, rotate, clear lines. Down speeds up the fall. Space hard-drops.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>score: <strong id="tetris-score">0</strong></span>
+          <span>lines: <strong id="tetris-lines">0</strong></span>
+          <span>level: <strong id="tetris-level">1</strong></span>
+        </div>
+        <canvas id="tetris-canvas" width="300" height="600" class="game-canvas tall-canvas"></canvas>
+        <div class="hint-row">controls: left / right, up rotate, down soft drop, space hard drop</div>
+        <button id="tetris-reset" class="action-btn" type="button">restart tetris</button>
+      </div>
+    </section>
+
+    <section id="infinity" class="game-panel" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Cabinet 07</p>
+        <h2>204∞</h2>
+        <p>2048, but keep going forever. Score grows, max tile climbs, no fake finish line.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>score: <strong id="infinity-score">0</strong></span>
+          <span>max tile: <strong id="infinity-max">2</strong></span>
+          <span>state: <strong id="infinity-state">live</strong></span>
+        </div>
+        <canvas id="infinity-canvas" width="420" height="420" class="game-canvas"></canvas>
+        <div id="infinity-message" class="hint-row">controls: arrow keys / WASD</div>
+        <button id="infinity-reset" class="action-btn" type="button">restart 204∞</button>
+      </div>
+    </section>
+
+    <section id="breakout" class="game-panel" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Cabinet 08</p>
+        <h2>breakout</h2>
+        <p>Bonus cabinet. Move the paddle, crack the wall, keep the ball alive.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>score: <strong id="breakout-score">0</strong></span>
+          <span>lives: <strong id="breakout-lives">3</strong></span>
+          <span>bricks: <strong id="breakout-bricks">0</strong></span>
+        </div>
+        <canvas id="breakout-canvas" width="420" height="420" class="game-canvas"></canvas>
+        <div class="hint-row">controls: arrow keys / A D</div>
+        <button id="breakout-reset" class="action-btn" type="button">restart breakout</button>
       </div>
     </section>
   </main>
