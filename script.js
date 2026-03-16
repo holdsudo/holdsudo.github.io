@@ -39,7 +39,7 @@ function createActionButton(action) {
     element.textContent = action.label;
     element.className = `action-btn ${action.style === "primary" ? "primary-action" : "secondary-action"}`;
 
-    if (/^https?:/i.test(action.href) || action.href.endsWith(".pdf")) {
+    if (/^https?:|^mailto:|^tel:/i.test(action.href) || action.href.endsWith(".pdf")) {
       element.target = "_blank";
       element.rel = "noopener noreferrer";
     }
@@ -110,7 +110,7 @@ function closeModal() {
   window.setTimeout(() => {
     modal.classList.add("hidden");
     backdrop.classList.add("hidden");
-  }, 220);
+  }, 180);
 
   document.body.style.overflow = "";
   activeCard = null;
@@ -134,10 +134,7 @@ function renderCards() {
     title.textContent = item.title;
     subtitle.textContent = item.subtitle;
 
-    card.addEventListener("click", () => {
-      openModal(item);
-    });
-
+    card.addEventListener("click", () => openModal(item));
     fragment.appendChild(node);
   });
 
@@ -174,12 +171,3 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderCards();
-
-window.addEventListener("load", () => {
-  window.setTimeout(() => {
-    const loader = document.getElementById("wipe-loader");
-    if (loader) {
-      loader.remove();
-    }
-  }, 1250);
-});
