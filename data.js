@@ -57,17 +57,16 @@ const data = [
   {
     key: "contact",
     title: "Contact",
-    subtitle: "Download my contact card",
+    subtitle: "Open my contact card",
     kicker: "Contact file",
-    description: "Save my contact card directly to your device.",
+    description: "Open my contact card and save it to your device.",
     icon: icons.contact,
     actions: [
       {
         type: "link",
-        label: "Download contact",
+        label: "Open contact card",
         href: "assets/files/contact.vcf",
-        style: "primary",
-        download: true
+        style: "primary"
       }
     ]
   },
