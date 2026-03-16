@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>holdsudo arcade lab</title>
+  <meta name="description" content="Five monochrome nerdy mini-games for holdsudo." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">prototype drop</p>
+      <h1>holdsudo arcade lab</h1>
+      <p class="lede">Five actual mini-games. Pick one, break it, then tell me which direction deserves the real build.</p>
+      <a class="hero-link" href="https://github.com/holdsudo" target="_blank" rel="noopener noreferrer">github.com/holdsudo</a>
+    </header>
+
+    <section class="selector" aria-label="Game selector">
+      <button class="selector-btn active" type="button" data-game="breach">terminal breach</button>
+      <button class="selector-btn" type="button" data-game="snake">mono snake</button>
+      <button class="selector-btn" type="button" data-game="dodger">bug dodger</button>
+      <button class="selector-btn" type="button" data-game="binary">binary memory</button>
+      <button class="selector-btn" type="button" data-game="code">codebreaker</button>
+    </section>
+
+    <section id="breach" class="game-panel active" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Option 1</p>
+        <h2>terminal breach</h2>
+        <p>Choose the right command in each system state. Wrong ops cost integrity. Clear all stages to win.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>integrity: <strong id="breach-integrity">3</strong></span>
+          <span>stage: <strong id="breach-stage">1 / 4</strong></span>
+        </div>
+        <pre id="breach-log" class="terminal-box"></pre>
+        <div id="breach-choices" class="choice-grid"></div>
+        <button id="breach-reset" class="action-btn" type="button">reset breach</button>
+      </div>
+    </section>
+
+    <section id="snake" class="game-panel" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Option 2</p>
+        <h2>mono snake</h2>
+        <p>Classic snake. Arrow keys or WASD. Eat white nodes, do not eat yourself.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>score: <strong id="snake-score">0</strong></span>
+          <span>best: <strong id="snake-best">0</strong></span>
+        </div>
+        <canvas id="snake-canvas" width="420" height="420" class="game-canvas"></canvas>
+        <div class="hint-row">controls: arrow keys / WASD</div>
+        <button id="snake-reset" class="action-btn" type="button">restart snake</button>
+      </div>
+    </section>
+
+    <section id="dodger" class="game-panel" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Option 3</p>
+        <h2>bug dodger</h2>
+        <p>Move the cursor block left and right. Dodge bugs, collect commits, survive as long as possible.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>score: <strong id="dodger-score">0</strong></span>
+          <span>lives: <strong id="dodger-lives">3</strong></span>
+        </div>
+        <canvas id="dodger-canvas" width="420" height="420" class="game-canvas"></canvas>
+        <div class="hint-row">controls: arrow keys / A D</div>
+        <button id="dodger-reset" class="action-btn" type="button">restart dodger</button>
+      </div>
+    </section>
+
+    <section id="binary" class="game-panel" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Option 4</p>
+        <h2>binary memory</h2>
+        <p>Watch the sequence, then repeat it. Each round adds one more bit-pad to the pattern.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>round: <strong id="binary-round">0</strong></span>
+          <span>status: <strong id="binary-status">idle</strong></span>
+        </div>
+        <div class="pad-grid">
+          <button class="pad" type="button" data-pad="0">00</button>
+          <button class="pad" type="button" data-pad="1">01</button>
+          <button class="pad" type="button" data-pad="2">10</button>
+          <button class="pad" type="button" data-pad="3">11</button>
+        </div>
+        <div id="binary-message" class="message-box">Press start to begin.</div>
+        <button id="binary-start" class="action-btn" type="button">start memory run</button>
+      </div>
+    </section>
+
+    <section id="code" class="game-panel" data-panel>
+      <div class="panel-copy">
+        <p class="kicker">Option 5</p>
+        <h2>codebreaker</h2>
+        <p>Guess the hidden 4-bit code. `hit` means right digit, right slot. `glow` means right digit, wrong slot.</p>
+      </div>
+      <div class="play-box">
+        <div class="status-row">
+          <span>attempts: <strong id="code-attempts">8</strong></span>
+          <span>status: <strong id="code-status">live</strong></span>
+        </div>
+        <form id="code-form" class="guess-row">
+          <input id="code-input" class="guess-input" type="text" inputmode="numeric" maxlength="4" placeholder="e.g. 0101" autocomplete="off" />
+          <button class="action-btn" type="submit">submit guess</button>
+        </form>
+        <div id="code-message" class="message-box">Enter four bits using only 0 and 1.</div>
+        <div id="code-history" class="history-box"></div>
+        <button id="code-reset" class="action-btn" type="button">new code</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
