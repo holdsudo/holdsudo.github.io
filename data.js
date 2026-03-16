@@ -57,15 +57,51 @@ const data = [
   {
     key: "contact",
     title: "Contact",
-    subtitle: "Open my contact card",
-    kicker: "Contact file",
-    description: "Open my contact card and save it to your device.",
+    subtitle: "Preview my contact details",
+    kicker: "Contact card",
+    description: "View my contact details here and copy anything you need.",
     icon: icons.contact,
+    preview: [
+      {
+        label: "Name",
+        value: "Joseph Mizrahi"
+      },
+      {
+        label: "Phone",
+        value: "(732) 997-9107"
+      },
+      {
+        label: "Email",
+        value: "jmizrahi7@gmail.com"
+      },
+      {
+        label: "LinkedIn",
+        value: "linkedin.com/in/josephamizrahi"
+      }
+    ],
     actions: [
       {
-        type: "link",
-        label: "Open contact card",
-        href: "assets/files/contact.vcf",
+        type: "copy",
+        label: "Copy full name",
+        value: "Joseph Mizrahi",
+        style: "primary"
+      },
+      {
+        type: "copy",
+        label: "Copy phone number",
+        value: "732-997-9107",
+        style: "secondary"
+      },
+      {
+        type: "copy",
+        label: "Copy email address",
+        value: "jmizrahi7@gmail.com",
+        style: "secondary"
+      },
+      {
+        type: "copy",
+        label: "Copy LinkedIn URL",
+        value: "linkedin.com/in/josephamizrahi",
         style: "primary"
       }
     ]

@@ -256,6 +256,33 @@ input {
   line-height: 1.6;
 }
 
+.modal-preview {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.preview-line + .preview-line {
+  margin-top: 10px;
+}
+
+.preview-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.preview-value {
+  margin: 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
 .modal-actions {
   display: grid;
   gap: 10px;

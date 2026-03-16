@@ -8,6 +8,7 @@ const modalIconWrap = document.getElementById("modal-icon-wrap");
 const modalKicker = document.getElementById("modal-kicker");
 const modalTitle = document.getElementById("modal-title");
 const modalDescription = document.getElementById("modal-description");
+const modalPreview = document.getElementById("modal-preview");
 const modalActions = document.getElementById("modal-actions");
 
 const resumeGate = document.getElementById("resume-gate");
@@ -81,11 +82,35 @@ function populateModal(card) {
   modalKicker.textContent = card.kicker || "";
   modalTitle.textContent = card.title;
   modalDescription.textContent = card.description || "";
+  modalPreview.replaceChildren();
   modalActions.replaceChildren();
 
   resumeGate.classList.add("hidden");
   resumePassword.value = "";
   resumeError.classList.add("hidden");
+
+  if (Array.isArray(card.preview) && card.preview.length > 0) {
+    card.preview.forEach((item) => {
+      const wrapper = document.createElement("div");
+      const label = document.createElement("span");
+      const value = document.createElement("p");
+
+      wrapper.className = "preview-line";
+      label.className = "preview-label";
+      value.className = "preview-value";
+
+      label.textContent = item.label;
+      value.textContent = item.value;
+
+      wrapper.appendChild(label);
+      wrapper.appendChild(value);
+      modalPreview.appendChild(wrapper);
+    });
+
+    modalPreview.classList.remove("hidden");
+  } else {
+    modalPreview.classList.add("hidden");
+  }
 
   card.actions.forEach((action) => {
     modalActions.appendChild(createActionButton(action));
