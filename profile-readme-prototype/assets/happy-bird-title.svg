@@ -1,0 +1,63 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#000000"/>
+  <rect x="26" y="26" width="1148" height="668" rx="30" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="46" y="46" width="1108" height="628" rx="22" stroke="#2D2D2D" stroke-width="2"/>
+
+  <g opacity="0.18">
+    <path d="M70 90H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 126H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 162H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 198H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 234H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 270H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 306H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 342H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 378H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 414H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 450H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 486H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 522H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 558H1130" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M70 594H1130" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+
+  <text x="88" y="105" fill="#FFFFFF" font-family="'Courier New', monospace" font-size="24" letter-spacing="4">HAPPY BIRD // HOLDSUDO EDITION</text>
+  <text x="936" y="105" fill="#8D8D8D" font-family="'Courier New', monospace" font-size="20" letter-spacing="3">SCORE: 014</text>
+
+  <rect x="110" y="150" width="980" height="380" rx="20" stroke="#FFFFFF" stroke-width="2"/>
+
+  <g opacity="0.9">
+    <rect x="772" y="170" width="76" height="122" fill="#FFFFFF"/>
+    <rect x="772" y="404" width="76" height="106" fill="#FFFFFF"/>
+    <rect x="1008" y="170" width="76" height="84" fill="#FFFFFF"/>
+    <rect x="1008" y="364" width="76" height="146" fill="#FFFFFF"/>
+    <rect x="536" y="170" width="76" height="92" fill="#FFFFFF"/>
+    <rect x="536" y="376" width="76" height="134" fill="#FFFFFF"/>
+  </g>
+
+  <g>
+    <ellipse cx="396" cy="338" rx="72" ry="52" fill="#FFFFFF"/>
+    <circle cx="424" cy="320" r="9" fill="#000000"/>
+    <path d="M333 338L287 320V356L333 338Z" fill="#FFFFFF"/>
+    <path d="M448 340L488 325L448 310V340Z" fill="#FFFFFF"/>
+    <path d="M367 350C379 363 396 369 417 367" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="378" cy="340" rx="24" ry="16" fill="#000000"/>
+    <path d="M364 264L388 236L410 266" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M352 252L380 226" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.15">
+    <path d="M132 602H1068" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8 10"/>
+  </g>
+
+  <text x="120" y="592" fill="#8D8D8D" font-family="'Courier New', monospace" font-size="22" letter-spacing="3">SPACE TO FLAP  //  CLICK TO PLAY THE FULL GAME</text>
+
+  <g>
+    <rect x="110" y="562" width="388" height="82" rx="18" fill="#FFFFFF"/>
+    <text x="152" y="613" fill="#000000" font-family="'Courier New', monospace" font-size="30" font-weight="700" letter-spacing="4">PRESS START</text>
+  </g>
+
+  <g opacity="0.7">
+    <text x="110" y="664" fill="#8D8D8D" font-family="'Courier New', monospace" font-size="16" letter-spacing="3">README PROTOTYPE FOR A GITHUB PROFILE LANDING PAGE</text>
+  </g>
+</svg>
