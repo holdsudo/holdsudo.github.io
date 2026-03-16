@@ -3,61 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joe</title>
-  <meta name="description" content="Joe's contact card" />
-
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L005CX6EF4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-L005CX6EF4');
-  </script>
-
-  <!-- Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
-
+  <title>Josephs Contact</title>
+  <meta name="description" content="Lets get in contact" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="msapplication-TileColor" content="#050505" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Josephs Contact" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="canonical" href="https://holdsudo.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Josephs Contact" />
+  <meta property="og:description" content="Lets get in contact" />
+  <meta property="og:url" content="https://holdsudo.github.io" />
+  <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D4E03AQH5lB0NqQjiXQ/profile-displayphoto-scale_400_400/B4EZyD2E84KoAg-/0/1771738527800?e=2147483647&v=beta&t=yOZecGqHxf_kvsenrc9y_4HXejyQi6s-pFJ07TuYgK0" />
+  <meta property="og:image:alt" content="Joseph profile photo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Josephs Contact" />
+  <meta name="twitter:description" content="Lets get in contact" />
+  <meta name="twitter:image" content="https://media.licdn.com/dms/image/v2/D4E03AQH5lB0NqQjiXQ/profile-displayphoto-scale_400_400/B4EZyD2E84KoAg-/0/1771738527800?e=2147483647&v=beta&t=yOZecGqHxf_kvsenrc9y_4HXejyQi6s-pFJ07TuYgK0" />
+  <meta name="twitter:image:alt" content="Joseph profile photo" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="wipe-loader" aria-hidden="true">
-    <div class="wipe-left"></div>
-    <div class="wipe-right"></div>
-    <div class="wipe-core"></div>
+  <div class="page-ambient" aria-hidden="true">
+    <div class="ambient ambient-primary"></div>
+    <div class="ambient ambient-secondary"></div>
+    <div class="ambient-grid"></div>
   </div>
 
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-  <div class="bg-grid"></div>
-
   <main class="page-shell">
-    <section class="hero">
-      <div class="hero-glow"></div>
-      <img
-        class="profile-pic"
-        src="https://media.licdn.com/dms/image/v2/D4E03AQH5lB0NqQjiXQ/profile-displayphoto-scale_400_400/B4EZyD2E84KoAg-/0/1771738527800?e=2147483647&v=beta&t=yOZecGqHxf_kvsenrc9y_4HXejyQi6s-pFJ07TuYgK0"
-        alt="Joe profile photo"
-      />
-      <h1 class="hero-name">Joe</h1>
-      <p class="hero-tagline">Tap a card to connect.</p>
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">Professional contact card</p>
+        <h1>Joseph</h1>
+        <p class="subtitle">Connect with me</p>
+      </div>
+      <div class="hero-portrait-wrap">
+        <div class="hero-spotlight" aria-hidden="true"></div>
+        <img
+          class="hero-portrait"
+          src="https://media.licdn.com/dms/image/v2/D4E03AQH5lB0NqQjiXQ/profile-displayphoto-scale_400_400/B4EZyD2E84KoAg-/0/1771738527800?e=2147483647&v=beta&t=yOZecGqHxf_kvsenrc9y_4HXejyQi6s-pFJ07TuYgK0"
+          alt="Joseph profile photo"
+        />
+      </div>
     </section>
 
-    <section class="card-grid" id="card-grid"></section>
+    <section class="card-section" aria-labelledby="connect-title">
+      <div class="section-heading">
+        <h2 id="connect-title">Connect</h2>
+        <p>Direct links for profile, documents, and contact details.</p>
+      </div>
+      <div class="card-grid" id="card-grid"></div>
+    </section>
   </main>
 
   <a
-    class="github-float"
+    class="github-link"
     href="https://github.com/holdsudo"
     target="_blank"
     rel="noopener noreferrer"
-    data-track="github_float_click"
   >
-    Check out my GitHub ❤️
+    Check out my GitHub
   </a>
+
+  <template id="card-template">
+    <button class="contact-card" type="button">
+      <div class="card-icon" aria-hidden="true"></div>
+      <div class="card-copy">
+        <h3 class="card-title"></h3>
+        <p class="card-subtitle"></p>
+      </div>
+      <span class="card-action">Open</span>
+    </button>
+  </template>
 
   <div id="modal-backdrop" class="modal-backdrop hidden"></div>
 
@@ -68,13 +95,11 @@
     aria-modal="true"
     aria-labelledby="modal-title"
   >
-    <button id="modal-close" class="modal-close" aria-label="Close">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
+    <button id="modal-close" class="modal-close" aria-label="Close" type="button">&times;</button>
 
     <div class="modal-top">
       <div id="modal-icon-wrap" class="modal-icon-wrap"></div>
-      <div>
+      <div class="modal-copy">
         <p id="modal-kicker" class="modal-kicker"></p>
         <h2 id="modal-title" class="modal-title"></h2>
         <p id="modal-description" class="modal-description"></p>
@@ -93,27 +118,11 @@
           placeholder="Password"
           autocomplete="off"
         />
-        <button id="resume-submit" class="action-btn primary-action" type="button">
-          Unlock
-        </button>
+        <button id="resume-submit" class="action-btn primary-action" type="button">Unlock</button>
       </div>
       <p id="resume-error" class="resume-error hidden">Incorrect password.</p>
     </div>
   </div>
-
-  <template id="card-template">
-    <button class="contact-card" type="button">
-      <div class="card-shine"></div>
-      <div class="card-icon"></div>
-      <div class="card-copy">
-        <h3 class="card-title"></h3>
-        <p class="card-subtitle"></p>
-      </div>
-      <div class="card-arrow">
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </div>
-    </button>
-  </template>
 
   <script src="data.js"></script>
   <script src="script.js"></script>

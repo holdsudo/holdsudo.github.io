@@ -4,7 +4,6 @@ const template = document.getElementById("card-template");
 const modal = document.getElementById("action-modal");
 const backdrop = document.getElementById("modal-backdrop");
 const closeBtn = document.getElementById("modal-close");
-
 const modalIconWrap = document.getElementById("modal-icon-wrap");
 const modalKicker = document.getElementById("modal-kicker");
 const modalTitle = document.getElementById("modal-title");
@@ -18,84 +17,59 @@ const resumeError = document.getElementById("resume-error");
 
 let activeCard = null;
 
-function trackEvent(name, params) {
-  if (typeof window.gtag === "function") {
-    window.gtag("event", name, params || {});
-  }
-}
-
-function copyText(value, successText, trackName) {
+function copyText(value) {
   if (!navigator.clipboard) {
     window.prompt("Copy this:", value);
-    trackEvent(trackName || "copy_click", { copied_value: value });
     return;
   }
 
-  navigator.clipboard.writeText(value)
-    .then(function () {
-      trackEvent(trackName || "copy_click", { copied_value: value });
-      alert(successText);
-    })
-    .catch(function () {
-      window.prompt("Copy this:", value);
-    });
+  navigator.clipboard.writeText(value).then(() => {
+    window.alert("Copied.");
+  }).catch(() => {
+    window.prompt("Copy this:", value);
+  });
 }
 
 function createActionButton(action) {
-  let el;
+  let element;
 
   if (action.type === "link") {
-    el = document.createElement("a");
-    el.href = action.href;
-    el.textContent = action.label;
-    el.className = "action-btn " + (action.style === "primary" ? "primary-action" : "secondary-action");
+    element = document.createElement("a");
+    element.href = action.href;
+    element.textContent = action.label;
+    element.className = `action-btn ${action.style === "primary" ? "primary-action" : "secondary-action"}`;
 
-    if (/^https?:/i.test(action.href)) {
-      el.target = "_blank";
-      el.rel = "noopener noreferrer";
-    } else {
-      el.target = "_self";
+    if (/^https?:/i.test(action.href) || action.href.endsWith(".pdf")) {
+      element.target = "_blank";
+      element.rel = "noopener noreferrer";
     }
 
     if (action.download) {
-      el.setAttribute("download", "");
+      element.setAttribute("download", "");
     }
 
-    el.addEventListener("click", function () {
-      trackEvent(action.track || "link_click", {
-        card: activeCard ? activeCard.key : ""
-      });
-    });
-
-    return el;
+    return element;
   }
 
   if (action.type === "copy") {
-    el = document.createElement("button");
-    el.type = "button";
-    el.textContent = action.label;
-    el.className = "action-btn " + (action.style === "primary" ? "primary-action" : "secondary-action");
-
-    el.addEventListener("click", function () {
-      copyText(action.value, action.label + " copied.", action.track);
-    });
-
-    return el;
+    element = document.createElement("button");
+    element.type = "button";
+    element.textContent = action.label;
+    element.className = `action-btn ${action.style === "primary" ? "primary-action" : "secondary-action"}`;
+    element.addEventListener("click", () => copyText(action.value));
+    return element;
   }
 
   if (action.type === "passwordPrompt") {
-    el = document.createElement("button");
-    el.type = "button";
-    el.textContent = action.label;
-    el.className = "action-btn " + (action.style === "primary" ? "primary-action" : "secondary-action");
-
-    el.addEventListener("click", function () {
+    element = document.createElement("button");
+    element.type = "button";
+    element.textContent = action.label;
+    element.className = `action-btn ${action.style === "primary" ? "primary-action" : "secondary-action"}`;
+    element.addEventListener("click", () => {
       resumeGate.classList.remove("hidden");
       resumePassword.focus();
-      trackEvent(action.track || "password_prompt_open");
     });
-
-    return el;
+    return element;
   }
 
   return document.createElement("div");
@@ -103,23 +77,19 @@ function createActionButton(action) {
 
 function populateModal(card) {
   activeCard = card;
-
-  modalIconWrap.innerHTML = '<i class="' + card.icon + '"></i>';
+  modalIconWrap.innerHTML = card.icon;
   modalKicker.textContent = card.kicker || "";
   modalTitle.textContent = card.title;
   modalDescription.textContent = card.description || "";
-  modalActions.innerHTML = "";
+  modalActions.replaceChildren();
 
   resumeGate.classList.add("hidden");
   resumePassword.value = "";
   resumeError.classList.add("hidden");
-  resumeError.classList.remove("shake");
 
-  for (let i = 0; i < card.actions.length; i++) {
-    modalActions.appendChild(createActionButton(card.actions[i]));
-  }
-
-  trackEvent(card.trackOpen || "card_open", { card: card.key });
+  card.actions.forEach((action) => {
+    modalActions.appendChild(createActionButton(action));
+  });
 }
 
 function openModal(card) {
@@ -127,7 +97,7 @@ function openModal(card) {
   backdrop.classList.remove("hidden");
   modal.classList.remove("hidden");
 
-  requestAnimationFrame(function () {
+  requestAnimationFrame(() => {
     modal.classList.add("show");
   });
 
@@ -137,7 +107,7 @@ function openModal(card) {
 function closeModal() {
   modal.classList.remove("show");
 
-  setTimeout(function () {
+  window.setTimeout(() => {
     modal.classList.add("hidden");
     backdrop.classList.add("hidden");
   }, 220);
@@ -147,84 +117,60 @@ function closeModal() {
 }
 
 function renderCards() {
-  if (!grid || !template || typeof data === "undefined" || !Array.isArray(data)) {
-    console.error("Cards could not render. Check data.js and HTML IDs.");
+  if (!grid || !template || !Array.isArray(data)) {
     return;
   }
 
-  grid.innerHTML = "";
+  const fragment = document.createDocumentFragment();
 
-  for (let i = 0; i < data.length; i++) {
-    const item = data[i];
+  data.forEach((item) => {
     const node = template.content.cloneNode(true);
     const card = node.querySelector(".contact-card");
     const icon = node.querySelector(".card-icon");
     const title = node.querySelector(".card-title");
     const subtitle = node.querySelector(".card-subtitle");
 
-    icon.innerHTML = '<i class="' + item.icon + '"></i>';
+    icon.innerHTML = item.icon;
     title.textContent = item.title;
     subtitle.textContent = item.subtitle;
 
-    card.addEventListener("click", function () {
+    card.addEventListener("click", () => {
       openModal(item);
     });
 
-    grid.appendChild(node);
+    fragment.appendChild(node);
+  });
+
+  grid.replaceChildren(fragment);
+}
+
+resumeSubmit.addEventListener("click", () => {
+  if (!activeCard || !activeCard.requiresPassword) {
+    return;
   }
-}
 
-if (resumeSubmit) {
-  resumeSubmit.addEventListener("click", function () {
-    if (!activeCard || !activeCard.requiresPassword) return;
+  if (resumePassword.value === activeCard.password) {
+    window.open(activeCard.protectedLink, "_blank", "noopener,noreferrer");
+    closeModal();
+    return;
+  }
 
-    if (resumePassword.value === activeCard.password) {
-      trackEvent("resume_unlock_success");
-      window.open(activeCard.protectedLink, "_blank", "noopener,noreferrer");
-      closeModal();
-    } else {
-      trackEvent("resume_unlock_fail");
-      resumeError.classList.remove("hidden");
-      resumeError.classList.add("shake");
+  resumeError.classList.remove("hidden");
+});
 
-      setTimeout(function () {
-        resumeError.classList.remove("shake");
-      }, 350);
-    }
-  });
-}
+resumePassword.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    resumeSubmit.click();
+  }
+});
 
-if (resumePassword) {
-  resumePassword.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      resumeSubmit.click();
-    }
-  });
-}
+closeBtn.addEventListener("click", closeModal);
+backdrop.addEventListener("click", closeModal);
 
-if (closeBtn) closeBtn.addEventListener("click", closeModal);
-if (backdrop) backdrop.addEventListener("click", closeModal);
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !modal.classList.contains("hidden")) {
     closeModal();
   }
 });
 
-const trackEls = document.querySelectorAll("[data-track]");
-for (let i = 0; i < trackEls.length; i++) {
-  trackEls[i].addEventListener("click", function () {
-    trackEvent(this.dataset.track);
-  });
-}
-
-window.addEventListener("load", function () {
-  trackEvent("page_loaded");
-
-  setTimeout(function () {
-    const loader = document.getElementById("wipe-loader");
-    if (loader) loader.remove();
-  }, 1300);
-
-  renderCards();
-});
+renderCards();
