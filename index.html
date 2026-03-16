@@ -34,6 +34,12 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div id="wipe-loader" aria-hidden="true">
+    <div class="wipe-left"></div>
+    <div class="wipe-right"></div>
+    <div class="wipe-core"></div>
+  </div>
+
   <div class="page-ambient" aria-hidden="true">
     <div class="ambient ambient-primary"></div>
     <div class="ambient ambient-secondary"></div>
@@ -65,15 +71,6 @@
       <div class="card-grid" id="card-grid"></div>
     </section>
   </main>
-
-  <a
-    class="github-link"
-    href="https://github.com/holdsudo"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Check out my GitHub
-  </a>
 
   <template id="card-template">
     <button class="contact-card" type="button">
@@ -126,5 +123,14 @@
 
   <script src="data.js"></script>
   <script src="script.js"></script>
+
+  <a
+    class="github-link"
+    href="https://github.com/holdsudo"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Check out my GitHub
+  </a>
 </body>
 </html>

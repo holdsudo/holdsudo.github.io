@@ -174,3 +174,12 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderCards();
+
+window.addEventListener("load", () => {
+  window.setTimeout(() => {
+    const loader = document.getElementById("wipe-loader");
+    if (loader) {
+      loader.remove();
+    }
+  }, 1250);
+});

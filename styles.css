@@ -22,21 +22,78 @@
 
 html {
   scroll-behavior: smooth;
+  background: #050505;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100svh;
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at top center, rgba(255, 255, 255, 0.08), transparent 30%),
     linear-gradient(180deg, #030303 0%, #080808 48%, #050505 100%);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 a {
   color: inherit;
+}
+
+#wipe-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.wipe-left,
+.wipe-right,
+.wipe-core {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #020202 0%, #090909 100%);
+}
+
+.wipe-left {
+  left: 0;
+  width: 50%;
+  transform-origin: left center;
+  animation: wipeLeft 1.15s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.wipe-right {
+  right: 0;
+  width: 50%;
+  transform-origin: right center;
+  animation: wipeRight 1.15s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.wipe-core {
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.95),
+    0 0 72px rgba(255, 255, 255, 0.24);
+  animation: wipeCore 0.95s ease forwards;
+}
+
+@keyframes wipeLeft {
+  0%, 18% { transform: translateX(0); }
+  100% { transform: translateX(-102%); }
+}
+
+@keyframes wipeRight {
+  0%, 18% { transform: translateX(0); }
+  100% { transform: translateX(102%); }
+}
+
+@keyframes wipeCore {
+  0%, 18% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .page-ambient {
@@ -85,7 +142,7 @@ a {
   z-index: 1;
   width: min(1120px, calc(100vw - 32px));
   margin: 0 auto;
-  padding: 28px 0 96px;
+  padding: 28px 0 20px;
 }
 
 .hero-panel,
@@ -282,20 +339,21 @@ a {
 }
 
 .github-link {
-  position: fixed;
-  right: 18px;
-  bottom: 16px;
-  z-index: 2;
-  font-size: 0.83rem;
+  display: block;
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 0 0 calc(16px + env(safe-area-inset-bottom));
+  text-align: right;
+  font-size: 0.77rem;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.54);
+  color: rgba(255, 255, 255, 0.32);
   text-decoration: none;
   transition: color var(--transition), opacity var(--transition);
 }
 
 .github-link:hover,
 .github-link:focus-visible {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.56);
   outline: none;
 }
 
@@ -494,7 +552,7 @@ a {
   .page-shell {
     width: min(100vw - 20px, 1120px);
     padding-top: 18px;
-    padding-bottom: 88px;
+    padding-bottom: 14px;
   }
 
   .hero-panel {
@@ -524,6 +582,12 @@ a {
 
   .card-action {
     margin-top: auto;
+  }
+
+  .github-link {
+    width: min(100vw - 20px, 1120px);
+    padding-bottom: calc(14px + env(safe-area-inset-bottom));
+    font-size: 0.74rem;
   }
 
   .modal-top,
