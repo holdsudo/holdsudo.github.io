@@ -148,13 +148,15 @@ function renderCards() {
 
   const fragment = document.createDocumentFragment();
 
-  data.forEach((item) => {
+  data.forEach((item, index) => {
     const node = template.content.cloneNode(true);
     const card = node.querySelector(".contact-card");
     const icon = node.querySelector(".card-icon");
     const title = node.querySelector(".card-title");
     const subtitle = node.querySelector(".card-subtitle");
 
+    card.classList.add("reveal");
+    card.style.animationDelay = `${140 + index * 50}ms`;
     icon.innerHTML = item.icon;
     title.textContent = item.title;
     subtitle.textContent = item.subtitle;
@@ -164,6 +166,21 @@ function renderCards() {
   });
 
   grid.replaceChildren(fragment);
+}
+
+function initializeMotion() {
+  document.body.classList.add("is-ready");
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  window.addEventListener("pointermove", (event) => {
+    const x = (event.clientX / window.innerWidth) * 100;
+    const y = (event.clientY / window.innerHeight) * 100;
+    document.documentElement.style.setProperty("--mouse-x", `${x}%`);
+    document.documentElement.style.setProperty("--mouse-y", `${y}%`);
+  }, { passive: true });
 }
 
 resumeSubmit.addEventListener("click", () => {
@@ -196,3 +213,4 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderCards();
+initializeMotion();

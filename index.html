@@ -36,23 +36,33 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="scene" aria-hidden="true">
+    <div class="background-grid"></div>
+    <div class="mesh mesh-a"></div>
+    <div class="mesh mesh-b"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+  </div>
+
   <main class="page-shell">
-    <section class="hero-panel">
-      <div class="hero-copy">
-        <p class="eyebrow">Professional contact card</p>
-        <h1>Joseph</h1>
-        <p class="subtitle">Connect with me</p>
-      </div>
-      <div class="hero-portrait-wrap">
-        <img
-          class="hero-portrait"
-          src="https://media.licdn.com/dms/image/v2/D4E03AQH5lB0NqQjiXQ/profile-displayphoto-scale_400_400/B4EZyD2E84KoAg-/0/1771738527800?e=2147483647&v=beta&t=yOZecGqHxf_kvsenrc9y_4HXejyQi6s-pFJ07TuYgK0"
-          alt="Joseph profile photo"
-        />
+    <section class="hero-panel reveal reveal-1">
+      <div class="hero-row">
+        <div class="hero-portrait-wrap">
+          <img
+            class="hero-portrait"
+            src="https://media.licdn.com/dms/image/v2/D4E03AQH5lB0NqQjiXQ/profile-displayphoto-scale_400_400/B4EZyD2E84KoAg-/0/1771738527800?e=2147483647&v=beta&t=yOZecGqHxf_kvsenrc9y_4HXejyQi6s-pFJ07TuYgK0"
+            alt="Joseph profile photo"
+          />
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Professional contact card</p>
+          <h1>Joseph</h1>
+          <p class="subtitle">Connect with me</p>
+        </div>
       </div>
     </section>
 
-    <section class="card-section" aria-labelledby="connect-title">
+    <section class="card-section reveal reveal-2" aria-labelledby="connect-title">
       <div class="section-heading">
         <h2 id="connect-title">Connect</h2>
         <p>Direct links for profile, documents, and contact details.</p>
@@ -60,14 +70,16 @@
       <div class="card-grid" id="card-grid"></div>
     </section>
 
-    <a
-      class="github-link"
-      href="https://github.com/holdsudo"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Check out my GitHub
-    </a>
+    <footer class="site-footer reveal reveal-3">
+      <a
+        class="github-link"
+        href="https://github.com/holdsudo"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Github <span class="footer-heart" aria-hidden="true">&#10084;&#65039;</span>
+      </a>
+    </footer>
   </main>
 
   <template id="card-template">
@@ -125,3 +137,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
