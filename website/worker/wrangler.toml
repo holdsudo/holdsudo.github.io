@@ -3,6 +3,6 @@ main = "src/index.js"
 compatibility_date = "2026-04-10"
 
 [vars]
-ALLOWED_ORIGIN = "https://holdsudo.github.io"
+ALLOWED_ORIGIN = "https://holdsudo.github.io,https://joe-miz.com,http://joe-miz.com"
 NOTIFY_TO_EMAIL = "info@championautofinance.com"
 NOTIFY_FROM_EMAIL = "no-reply@championautofinance.com"

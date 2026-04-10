@@ -60,9 +60,16 @@ async function sendViaResend(payload, env) {
   }
 }
 
+function getAllowedOrigins(allowedOrigin) {
+  if (!allowedOrigin) return [];
+  if (allowedOrigin === "*") return ["*"];
+  return allowedOrigin.split(",").map((value) => value.trim()).filter(Boolean);
+}
+
 function isAllowedOrigin(requestOrigin, allowedOrigin) {
-  if (!allowedOrigin || allowedOrigin === "*") return true;
-  return requestOrigin === allowedOrigin;
+  const allowedOrigins = getAllowedOrigins(allowedOrigin);
+  if (allowedOrigins.includes("*")) return true;
+  return allowedOrigins.includes(requestOrigin);
 }
 
 export default {

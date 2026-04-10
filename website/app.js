@@ -27,7 +27,16 @@
     payload.page = window.location.pathname;
     payload.userAgent = navigator.userAgent;
 
-    if (payload.companyEmail && payload.email && payload.companyEmail !== payload.email) {
+    if (payload.companyEmail && payload.email) {
+      payload.email = payload.email.trim();
+      payload.companyEmail = payload.companyEmail.trim();
+    }
+
+    if (
+      payload.companyEmail &&
+      payload.email &&
+      payload.companyEmail.toLowerCase() !== payload.email.toLowerCase()
+    ) {
       setStatus(form, "error", "Email and confirmation email must match.");
       return;
     }
