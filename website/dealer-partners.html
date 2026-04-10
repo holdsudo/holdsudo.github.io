@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dealer Partners | Champion Auto Finance</title>
+  <link rel="icon" type="image/png" href="./assets/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./site-config.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="./index.html"><img src="./assets/logo.webp" alt="Champion Auto Finance"></a>
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./how-it-works.html">How It Works</a>
+        <a href="./about-us.html">About Us</a>
+        <a href="./faqs.html">FAQs</a>
+        <a class="active" href="./dealer-partners.html">Dealer Partners</a>
+        <a href="./contact-us.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container inner">
+      <div>
+        <div class="eyebrow">Partner Intake</div>
+        <h1>Dealer Partners</h1>
+        <p>Interested in partnering with us for financing solutions? Fill out the form below and the team will get in touch shortly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section section">
+    <div class="container">
+      <div class="form-shell">
+        <div class="form-copy">
+          <h2>Dealer Partners</h2>
+          <p>This preserves the live dealer inquiry fields and removes the WordPress/Gravity Forms dependency. The same static page can submit through a Cloudflare Worker with Resend, a Vercel function, or any other API endpoint you control.</p>
+          <ul>
+            <li>Company name and contact capture</li>
+            <li>Direct email notification to your team</li>
+            <li>No Gmail OAuth or SMTP timeout issues</li>
+          </ul>
+          <img src="./assets/dealer-mascot.png" alt="Champion Auto Finance dealer partner mascot" style="max-width: 340px; margin-top: 20px;">
+        </div>
+        <div class="form-card">
+          <form class="stack" data-caf-form="dealer_partner">
+            <label>Company Name
+              <input name="companyName" type="text" placeholder="Company Name *" required>
+            </label>
+            <label>Contact Person
+              <input name="contactPerson" type="text" placeholder="Contact Person *" required>
+            </label>
+            <div class="stack two">
+              <label>Email
+                <input name="email" type="email" placeholder="Enter Email *" required>
+              </label>
+              <label>Confirm Email
+                <input name="companyEmail" type="email" placeholder="Confirm Email *" required>
+              </label>
+            </div>
+            <label>Phone
+              <input name="phone" type="tel" placeholder="Phone *" required>
+            </label>
+            <label>Message
+              <textarea name="message" placeholder="Enter your message here *" required></textarea>
+            </label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+            <button type="submit">Submit</button>
+            <p class="help">Set `window.CAF_CONFIG.formEndpoint` in `site-config.js` to activate this form.</p>
+            <div data-form-status class="status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container inner">
+      <div>© Champion Auto Finance. All rights reserved.</div>
+      <div class="small">Champion Auto Finance is not a lender. Financing approvals, terms, and rates are subject to lender underwriting, credit approval, and applicable laws.</div>
+    </div>
+  </footer>
+  <script src="./app.js"></script>
+</body>
+</html>

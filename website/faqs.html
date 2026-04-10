@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQs | Champion Auto Finance</title>
+  <link rel="icon" type="image/png" href="./assets/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="./index.html"><img src="./assets/logo.webp" alt="Champion Auto Finance"></a>
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./how-it-works.html">How It Works</a>
+        <a href="./about-us.html">About Us</a>
+        <a class="active" href="./faqs.html">FAQs</a>
+        <a href="./dealer-partners.html">Dealer Partners</a>
+        <a href="./contact-us.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container inner">
+      <div>
+        <div class="eyebrow">FAQ</div>
+        <h1>Frequently Asked Questions</h1>
+        <p>Answers to the most likely questions about the rebuilt site, deployment options, and form delivery architecture.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container faq-list">
+      <article class="faq-item">
+        <h3>Can this be hosted on GitHub Pages?</h3>
+        <p>Yes. The frontend is plain static HTML, CSS, and JavaScript. Form submission should point to an external endpoint such as the included Cloudflare Worker.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Can we use Resend?</h3>
+        <p>Yes. The included worker is designed for Resend because it removes SMTP timeout and Gmail OAuth issues. You will need a verified sending domain in Resend.</p>
+      </article>
+      <article class="faq-item">
+        <h3>What is the free workaround?</h3>
+        <p>Cloudflare Workers has a generous free tier and pairs well with a static site. For email delivery itself, most providers still require some verified sender setup.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container inner">
+      <div>© Champion Auto Finance. All rights reserved.</div>
+      <div class="small">Champion Auto Finance is not a lender. Financing approvals, terms, and rates are subject to lender underwriting, credit approval, and applicable laws.</div>
+    </div>
+  </footer>
+</body>
+</html>

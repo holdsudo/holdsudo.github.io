@@ -1,0 +1,8 @@
+name = "championautofinance-forms"
+main = "src/index.js"
+compatibility_date = "2026-04-10"
+
+[vars]
+ALLOWED_ORIGIN = "https://your-github-pages-domain.example"
+NOTIFY_TO_EMAIL = "info@championautofinance.com"
+NOTIFY_FROM_EMAIL = "no-reply@your-verified-domain.example"

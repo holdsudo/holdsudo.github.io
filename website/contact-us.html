@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Champion Auto Finance</title>
+  <link rel="icon" type="image/png" href="./assets/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./site-config.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="./index.html"><img src="./assets/logo.webp" alt="Champion Auto Finance"></a>
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./how-it-works.html">How It Works</a>
+        <a href="./about-us.html">About Us</a>
+        <a href="./faqs.html">FAQs</a>
+        <a href="./dealer-partners.html">Dealer Partners</a>
+        <a class="active" href="./contact-us.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container inner">
+      <div>
+        <div class="eyebrow">Reach Out</div>
+        <h1>Contact Us</h1>
+        <p>We're here to help. Reach out with any questions or feedback and the team will follow up directly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section section">
+    <div class="container">
+      <div class="form-shell">
+        <div class="form-copy">
+          <h2>Contact Us</h2>
+          <p>We preserved the live form fields from the WordPress build and replaced Gravity Forms with a direct submit path that can be delivered by Cloudflare Workers, Vercel, or any endpoint you control.</p>
+          <p><strong>Call/Text:</strong> <a href="tel:7326182036">(732) 618-2036</a><br><strong>Email:</strong> <a href="mailto:info@championautofinance.com">info@championautofinance.com</a></p>
+          <img src="./assets/contact-mascot.png" alt="Champion Auto Finance contact mascot" style="max-width: 320px; margin-top: 20px;">
+        </div>
+        <div class="form-card">
+          <form class="stack" data-caf-form="contact">
+            <div class="stack two">
+              <label>First Name
+                <input name="firstName" type="text" placeholder="First Name *" required>
+              </label>
+              <label>Last Name
+                <input name="lastName" type="text" placeholder="Last Name *" required>
+              </label>
+            </div>
+            <div class="stack two">
+              <label>Email
+                <input name="email" type="email" placeholder="Enter Email *" required>
+              </label>
+              <label>Confirm Email
+                <input name="companyEmail" type="email" placeholder="Confirm Email *" required>
+              </label>
+            </div>
+            <label>Message
+              <textarea name="message" placeholder="Enter your message here *" required></textarea>
+            </label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+            <button type="submit">Submit</button>
+            <p class="help">Set `window.CAF_CONFIG.formEndpoint` in `site-config.js` to activate this form.</p>
+            <div data-form-status class="status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container inner">
+      <div>© Champion Auto Finance. All rights reserved.</div>
+      <div class="small">Champion Auto Finance is not a lender. Financing approvals, terms, and rates are subject to lender underwriting, credit approval, and applicable laws.</div>
+    </div>
+  </footer>
+  <script src="./app.js"></script>
+</body>
+</html>
