@@ -95,7 +95,7 @@ img {
   color: #fff;
   background:
     linear-gradient(120deg, rgba(7, 14, 55, 0.9), rgba(11, 29, 89, 0.72)),
-    url("./assets/home-hero.png") center/cover no-repeat;
+    url("../assets/images/background") center/cover no-repeat;
 }
 
 .hero::after {
@@ -310,7 +310,7 @@ input[type="submit"] {
   color: #fff;
   background:
     linear-gradient(120deg, rgba(7, 14, 55, 0.88), rgba(18, 41, 140, 0.72)),
-    url("./assets/inner-hero.jpg") center/cover no-repeat;
+    url("../assets/images/background") center/cover no-repeat;
 }
 
 .page-hero .inner {
