@@ -306,13 +306,8 @@ input[type="submit"] {
   position: relative;
   color: #fff;
   background:
-<<<<<<< HEAD
-    linear-gradient(120deg, rgba(7, 14, 55, 0.88), rgba(18, 41, 140, 0.72)),
-    url("../assets/images/background") center/cover no-repeat;
-=======
     linear-gradient(120deg, rgba(7, 14, 55, 0.28), rgba(18, 41, 140, 0.18)),
     url("https://championautofinance.com/wp-content/uploads/2026/03/Background_New1.png?id=141") center/cover no-repeat;
->>>>>>> 48d1f02 (Match website copy and backgrounds to original site)
 }
 
 .page-hero .inner {
