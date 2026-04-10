@@ -316,16 +316,22 @@ input[type="submit"] {
 }
 
 .page-hero .inner {
-  min-height: 520px;
+  min-height: 380px;
   display: grid;
   align-items: center;
-  padding: 220px 0 170px;
+  padding: 180px 0 100px;
+}
+
+.page-hero p:empty {
+  display: none;
 }
 
 .form-section {
-  margin-top: -56px;
+  margin-top: 0;
   position: relative;
   z-index: 1;
+  background: #12298c;
+  padding-top: 0;
 }
 
 .form-shell {
@@ -541,10 +547,10 @@ textarea {
 
   .page-hero .inner {
     min-height: auto;
-    padding: 120px 0 90px;
+    padding: 110px 0 70px;
   }
 
   .form-section {
-    margin-top: -30px;
+    margin-top: 0;
   }
 }
