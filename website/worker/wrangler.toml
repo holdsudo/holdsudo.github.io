@@ -5,4 +5,4 @@ compatibility_date = "2026-04-10"
 [vars]
 ALLOWED_ORIGIN = "https://holdsudo.github.io"
 NOTIFY_TO_EMAIL = "info@championautofinance.com"
-NOTIFY_FROM_EMAIL = "no-reply@your-verified-domain.example"
+NOTIFY_FROM_EMAIL = "no-reply@championautofinance.com"
